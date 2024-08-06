@@ -1,0 +1,35 @@
+module.exports = {
+  root: true,
+  env: { browser: true, es2020: true },
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
+  ],
+  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['react-refresh'],
+  rules: {
+    'react-refresh/only-export-components': [
+      'off',
+      { allowConstantExport: true },
+    ],
+    'object-curly-spacing': ['warn', 'always' ],
+    'no-debugger': 'warn',
+    'jsx-quotes': ['warn', 'prefer-single'],
+    'quotes': ['warn', 'single'],
+    'no-multi-spaces': 'warn',
+    'no-trailing-spaces': 'warn',
+    'semi': ['warn', 'always'],
+    'comma-spacing': ['warn', {'after': true}],
+    'comma-dangle': ['warn', {
+      'objects': 'always-multiline',
+      'arrays': 'always-multiline',
+      'imports': 'only-multiline',
+    }],
+    'eol-last': ['warn', 'always'],
+    '@typescript-eslint/ban-ts-comment': 0,
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-unused-vars': 'off',
+  },
+}

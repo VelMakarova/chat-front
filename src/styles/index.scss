@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+  width: 100%;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+//general classes
+
+@layer components {
+  .border-standart {
+    @apply border-2 border-solid
+  }
+  .flex-centred {
+    @apply flex justify-center items-center
+  }
+  .flex-0 {
+    flex: 0 0 auto;
+  }
+  .form-field-not-lof:not(:last-of-type) {
+    margin-bottom: 40px;
+  }
+  body {
+    @apply text-md text-primaryText bg-brightBg;
+    height: 100%;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    font-family: Helvetica, sans-serif;
+  }
+}
+
+@layer components {
+  .navlink-pseudo {
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      border-radius: 0 0 5px 5px;
+      transition: all .2s ease;
+    }
+    &.active {
+      @apply text-accent;
+    }
+    &.active:after {
+      @apply bg-accent;
+    }
+  }
+  .notification-list {
+    @apply absolute top-[50px] right-0 p-2.5 overflow-hidden bg-brightBg rounded-[10px] border-2 border-secondaryDark border-solid
+  }
+  .notification-item {
+    @apply relative py-2.5 px-4 text-secondaryText;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 7px;
+      width: 7px;
+      border-radius: 100%;
+      transform: translateY(-50%);
+    }
+    &.has-read {
+      @apply text-primaryText
+    }
+    &:not(:last-child) {
+      border-bottom: 1px solid;
+      margin-bottom: 5px;
+    }
+  }
+  .chat-item {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+      'name time'
+      'number number'
+      'msg msg';
+  }
+
+  .area-name {
+    grid-area: name;
+  }
+
+  .area-time {
+    grid-area: time;
+  }
+
+  .area-number {
+    grid-area: number;
+  }
+
+  .area-msg {
+    grid-area: msg;
+  }
+
+  .login-logo {
+    font-size: 35px;
+    margin-bottom: 40px;
+  }
+}
+
